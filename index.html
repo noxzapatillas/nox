@@ -1168,6 +1168,9 @@ html[data-theme="light"] body #grid > .card .sz.on{background:#0a0a0a!important;
   #pie{padding-left:16px!important;padding-right:16px!important}
   #waFlot{bottom:calc(var(--pieh,146px) + 16px)!important;right:16px!important}
 }
+
+/* v69: menos espacio en celular entre pestañas y tarjetas */
+@media (max-width:700px){#tools{margin-bottom:-14px!important}}
 </style>
 </head>
 <body>
@@ -2204,7 +2207,7 @@ var LOGOS = {"Timberland":"img%205/logo-timberland.png","Onitsuka Tiger":"img%20
     if(!movil()){ if(t.parentNode!==sd) sd.insertBefore(t,sd.firstChild); } else if(t.parentNode!==hd) hd.insertBefore(t,hd.firstChild);
     var tg=document.querySelector("#tools .tgen"); if(tg){ if(!movil()){ if(tg.parentNode!==hd) hd.insertBefore(tg,hd.firstChild); } else if(tg.parentNode===hd) hd.parentNode.insertBefore(tg,hd.nextSibling); }
     var lab=OPS.filter(function(o){return o[0]===orden;})[0];
-    document.querySelector("#nkS span").textContent = orden ? "Ordenar por: "+lab[1] : "Ordenar por";
+    document.querySelector("#nkS span").textContent = (orden && window.innerWidth>700) ? "Ordenar por: "+lab[1] : "Ordenar por";
     [].forEach.call(document.querySelectorAll("[data-nko]"),function(b){ b.classList.toggle("on",b.dataset.nko===orden); });
     [].forEach.call(document.querySelectorAll("[data-nktf]"),function(b){ b.classList.toggle("on",+b.dataset.nktf===tallaF); });
     var off=document.documentElement.classList.contains("nkoff");
@@ -2229,7 +2232,7 @@ var LOGOS = {"Timberland":"img%205/logo-timberland.png","Onitsuka Tiger":"img%20
 (function(){ function f(){ var t=document.querySelector(".top"); if(t) document.documentElement.style.setProperty("--nkTop",(t.getBoundingClientRect().bottom-22)+"px"); } window.addEventListener("resize",f); window.addEventListener("hashchange",function(){ setTimeout(f,400); }); setTimeout(f,600); setInterval(f,2000); })();
 
 (function(){ function f(){ var sh=document.getElementById("shop"), t=document.getElementById("tools"); if(!t||sh.hidden) return; if(window.scrollY>2 && document.documentElement.style.getPropertyValue("--nkFix")) return;
-  var prev=t.style.position; t.style.position="static"; var y=t.getBoundingClientRect().top+window.scrollY; t.style.position=prev;
+  var prev=t.style.getPropertyValue("position"); t.style.setProperty("position","static","important"); var y=t.getBoundingClientRect().top+window.scrollY; if(prev) t.style.setProperty("position",prev); else t.style.removeProperty("position");
   var top=document.querySelector(".top"); var hb=top?top.getBoundingClientRect().bottom:0; if(top && getComputedStyle(top).position!=="fixed" && getComputedStyle(top).position!=="sticky") hb+=window.scrollY;
   if(!(y>0)) y=hb; y=Math.min(Math.max(hb-24,y),hb+60);
   document.documentElement.style.setProperty("--nkFix", Math.round(y)+"px"); }
