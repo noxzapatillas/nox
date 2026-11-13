@@ -1171,6 +1171,12 @@ html[data-theme="light"] body #grid > .card .sz.on{background:#0a0a0a!important;
 
 /* v69: menos espacio en celular entre pestañas y tarjetas */
 @media (max-width:700px){#tools{margin-bottom:-14px!important}}
+
+/* v70: número de Zapatillas más pequeño; barra sin salto al cargar */
+html body #nkT span{font-size:.62em!important;font-weight:400!important;color:#8a8a8e!important;letter-spacing:0!important;vertical-align:middle}
+@media (max-width:860px){html body #nkT span{font-size:12px!important}}
+#tools{top:var(--nkFix,120px)!important}
+@media (max-width:860px){#tools{top:var(--nkFix,77px)!important}}
 </style>
 </head>
 <body>
@@ -1339,7 +1345,6 @@ var PRODUCTOS = [
   {id:106, marca:"Adidas", nombre:"BADBO 1.0 (Bad Bunny) Resilience", modelo:"BADBO 1.0 (Bad Bunny)", colorway:"Resilience", genero:"Caballero", precio:120000, tallas:[40,41,42,43,44], color:"#efebe1", img:"img%201/adidas-badbo-1-0-bad-bunny-resilience.jpg", pag:"p%201/adidas-badbo-1-0-bad-bunny-resilience.html"},
   {id:107, marca:"Nike", nombre:"Air Force 1 Deluxe Negro Charol", modelo:"Air Force 1 Deluxe", colorway:"Negro Charol", genero:"Caballero", precio:115000, tallas:[40,41,42,43,44], color:"#e6e3df", img:"img%202/nike-air-force-1-deluxe-negro-charol.jpg", pag:"p%202/nike-air-force-1-deluxe-negro-charol.html"},
   {id:108, marca:"Nike", nombre:"Air Force 1 Low Negro/Suela Roja", modelo:"Air Force 1 Low", colorway:"Negro/Suela Roja", genero:"Caballero", precio:115000, tallas:[40,41,42,43,44], color:"#ece2e0", img:"img%202/nike-af1-suela-roja-hombre.jpg", pag:"p%202/nike-af1-suela-roja-hombre.html"},
-  {id:109, marca:"Nike", nombre:"Air Force 1 Low Supreme Blanco/Cordones Rojos", modelo:"Air Force 1 Low Supreme", colorway:"Blanco/Cordones Rojos", genero:"Caballero", precio:115000, tallas:[40,41,42,43,44], color:"#ebebeb", img:"img%202/nike-af1-supreme-hombre.jpg", pag:"p%202/nike-af1-supreme-hombre.html"},
   {id:110, marca:"Converse", nombre:"Run Star Motion (plataforma) Negro/Blanco", modelo:"Run Star Motion (plataforma)", colorway:"Negro/Blanco", genero:"Dama", precio:120000, tallas:[36,37,38,39], color:"#e6e3df", img:"img%201/converse-tractor-dama.jpg", pag:"p%201/converse-tractor-dama.html"},
   {id:111, marca:"Converse", nombre:"Chuck Taylor Lift Hi (plataforma) Negro", modelo:"Chuck Taylor Lift Hi (plataforma)", colorway:"Negro", genero:"Dama", precio:110000, tallas:[36,37,38,39], color:"#e6e3df", img:"img%201/converse-plataforma-bota-dama.jpg", pag:"p%201/converse-plataforma-bota-dama.html"},
   {id:112, marca:"Converse", nombre:"Chuck Taylor Lift Hi (plataforma) Blanco", modelo:"Chuck Taylor Lift Hi (plataforma)", colorway:"Blanco", genero:"Dama", precio:110000, tallas:[36,37,38,39], color:"#ebebeb", img:"img%201/converse-chuck-taylor-lift-hi-plataforma-blanco.jpg", pag:"p%201/converse-chuck-taylor-lift-hi-plataforma-blanco.html"},
@@ -1439,8 +1444,8 @@ var PRODUCTOS = [
   {id:206, marca:"Jordan", nombre:"Air Jordan 40 Negro Total", modelo:"Air Jordan 40", colorway:"Negro Total", genero:"Caballero", precio:130000, tallas:[40,41,42,43,44], color:"#e6e3df", img:"img%201/jordan-air-jordan-40-negro-total.jpg", pag:"p%201/jordan-air-jordan-40-negro-total.html"},
   {id:207, marca:"Puma", nombre:"Suede XL BMW M Motorsport Negro/Rojo", modelo:"Suede XL BMW M Motorsport", colorway:"Negro/Rojo", genero:"Caballero", precio:100000, tallas:[40,41,42,43,44], color:"#e6e3df", img:"img%203/puma-suede-xl-hombre.jpg", pag:"p%203/puma-suede-xl-hombre.html"},
   {id:208, marca:"Puma", nombre:"Suede XL BMW M Motorsport Negro/Blanco", modelo:"Suede XL BMW M Motorsport", colorway:"Negro/Blanco", genero:"Caballero", precio:100000, tallas:[40,41,42,43,44], color:"#ebebeb", img:"img%203/puma-suede-xl-bmw-m-motorsport-negro-blanco.jpg", pag:"p%203/puma-suede-xl-bmw-m-motorsport-negro-blanco.html"},
-  {id:209, marca:"Nike", nombre:"Air Force 1 Low Supreme Negro", modelo:"Air Force 1 Low Supreme", colorway:"Negro", genero:"Caballero", precio:0, tallas:[40,41,42,43,44], color:"#e6e3df", img:"img%202/nike-air-force-1-low-supreme-negro.jpg", pag:"p%202/nike-air-force-1-low-supreme-negro.html"},
-  {id:210, marca:"Nike", nombre:"Air Force 1 Low Supreme Blanco/Rojo", modelo:"Air Force 1 Low Supreme", colorway:"Blanco/Rojo", genero:"Caballero", precio:0, tallas:[40,41,42,43,44], color:"#ebebeb", img:"img%202/nike-air-force-1-low-supreme-blanco-rojo.jpg", pag:"p%202/nike-air-force-1-low-supreme-blanco-rojo.html"},
+  {id:209, marca:"Nike", nombre:"Air Force 1 Low Supreme Negro", modelo:"Air Force 1 Low Supreme", colorway:"Negro", genero:"Caballero", precio:110000, tallas:[40,41,42,43,44], color:"#e6e3df", img:"img%202/nike-air-force-1-low-supreme-negro.jpg", pag:"p%202/nike-air-force-1-low-supreme-negro.html"},
+  {id:210, marca:"Nike", nombre:"Air Force 1 Low Supreme Blanco/Rojo", modelo:"Air Force 1 Low Supreme", colorway:"Blanco/Rojo", genero:"Caballero", precio:110000, tallas:[40,41,42,43,44], color:"#ebebeb", img:"img%202/nike-air-force-1-low-supreme-blanco-rojo.jpg", pag:"p%202/nike-air-force-1-low-supreme-blanco-rojo.html"},
   {id:211, marca:"Jordan", nombre:"Air Jordan 4 Retro Blanco/Verde Neón", modelo:"Air Jordan 4 Retro", colorway:"Blanco/Verde Neón", genero:"Dama - Caballero", precio:100000, tallas:[36,37,38,39,40,41,42,43,44], color:"#eef2e2", img:"img%202/jordan-retro-4-dama-y-caballero.jpg", pag:"p%202/jordan-retro-4-dama-y-caballero.html"},
   {id:212, marca:"Jordan", nombre:"Air Jordan 3 Retro Blanco/Verde/Rosa", modelo:"Air Jordan 3 Retro", colorway:"Blanco/Verde/Rosa", genero:"Dama", precio:100000, tallas:[36,37,38,39], color:"#eaf0ec", img:"img%201/jordan-retro-3-dama.jpg", pag:"p%201/jordan-retro-3-dama.html"},
   {id:213, marca:"Jordan", nombre:"Jordan Flight Gris/Negro", modelo:"Jordan Flight", colorway:"Gris/Negro", genero:"Caballero", precio:100000, tallas:[40,41,42,43,44], color:"#e6e6e6", img:"img%201/jordan-flight-hombre.jpg", pag:"p%201/jordan-flight-hombre.html"},
@@ -2236,7 +2241,7 @@ var LOGOS = {"Timberland":"img%205/logo-timberland.png","Onitsuka Tiger":"img%20
   var top=document.querySelector(".top"); var hb=top?top.getBoundingClientRect().bottom:0; if(top && getComputedStyle(top).position!=="fixed" && getComputedStyle(top).position!=="sticky") hb+=window.scrollY;
   if(!(y>0)) y=hb; y=Math.min(Math.max(hb-24,y),hb+60);
   document.documentElement.style.setProperty("--nkFix", Math.round(y)+"px"); }
-  window.addEventListener("resize",function(){ setTimeout(f,100); }); window.addEventListener("hashchange",function(){ setTimeout(f,500); setTimeout(f,1200); setTimeout(f,2500); }); window.addEventListener("load",function(){ setTimeout(f,200); }); setTimeout(f,700); setTimeout(f,1500); })();
+  window.addEventListener("resize",function(){ setTimeout(f,100); }); window.addEventListener("hashchange",function(){ setTimeout(f,500); setTimeout(f,1200); setTimeout(f,2500); }); window.addEventListener("load",function(){ setTimeout(f,200); }); requestAnimationFrame(f); setTimeout(f,150); setTimeout(f,700); setTimeout(f,1500); })();
 
 (function(){ function f(){ var p=document.getElementById("pie"), w=document.getElementById("waFlot"); if(!p||!w) return; var r=p.getBoundingClientRect(); if(!r.height) return;
   var b=window.innerHeight-r.bottom + (r.height-w.offsetHeight)/2; document.documentElement.style.setProperty("--waB",Math.max(8,Math.round(b))+"px"); }
