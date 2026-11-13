@@ -1162,6 +1162,12 @@ body:has(#home:not([hidden])) #lejanos{display:block}
 /* v66: talla seleccionada en tarjeta: negro con número blanco */
 html[data-theme="light"] #grid > .card .sz:hover{border-color:#0a0a0a!important}
 html[data-theme="light"] body #grid > .card .sz.on{background:#0a0a0a!important;color:#fff!important;border-color:#0a0a0a!important}
+
+/* v68: en celular, WhatsApp arriba de la franja negra y el pie centrado */
+@media (max-width:700px){
+  #pie{padding-left:16px!important;padding-right:16px!important}
+  #waFlot{bottom:calc(var(--pieh,146px) + 16px)!important;right:16px!important}
+}
 </style>
 </head>
 <body>
@@ -2222,9 +2228,9 @@ var LOGOS = {"Timberland":"img%205/logo-timberland.png","Onitsuka Tiger":"img%20
 
 (function(){ function f(){ var t=document.querySelector(".top"); if(t) document.documentElement.style.setProperty("--nkTop",(t.getBoundingClientRect().bottom-22)+"px"); } window.addEventListener("resize",f); window.addEventListener("hashchange",function(){ setTimeout(f,400); }); setTimeout(f,600); setInterval(f,2000); })();
 
-(function(){ function f(){ var sh=document.getElementById("shop"), t=document.getElementById("tools"); if(!t||sh.hidden) return;
+(function(){ function f(){ var sh=document.getElementById("shop"), t=document.getElementById("tools"); if(!t||sh.hidden) return; if(window.scrollY>2 && document.documentElement.style.getPropertyValue("--nkFix")) return;
   var prev=t.style.position; t.style.position="static"; var y=t.getBoundingClientRect().top+window.scrollY; t.style.position=prev;
-  var top=document.querySelector(".top"); var hb=top?(top.getBoundingClientRect().bottom+window.scrollY):0;
+  var top=document.querySelector(".top"); var hb=top?top.getBoundingClientRect().bottom:0; if(top && getComputedStyle(top).position!=="fixed" && getComputedStyle(top).position!=="sticky") hb+=window.scrollY;
   if(!(y>0)) y=hb; y=Math.min(Math.max(hb-24,y),hb+60);
   document.documentElement.style.setProperty("--nkFix", Math.round(y)+"px"); }
   window.addEventListener("resize",function(){ setTimeout(f,100); }); window.addEventListener("hashchange",function(){ setTimeout(f,500); setTimeout(f,1200); setTimeout(f,2500); }); window.addEventListener("load",function(){ setTimeout(f,200); }); setTimeout(f,700); setTimeout(f,1500); })();
