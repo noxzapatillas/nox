@@ -2224,7 +2224,7 @@ var LOGOS = {"Timberland":"img%205/logo-timberland.png","Onitsuka Tiger":"img%20
       head.parentNode.insertBefore(tg,head.nextSibling);
     }
     var side=document.getElementById("side"), box=side.querySelector(".sidebox"), chipsEl=document.getElementById("chips");
-    var sec=function(t,id,inner){ return '<section class="nksec open" id="'+id+'"><button type="button" class="nksh">'+t+CH+'</button><div class="nksb">'+inner+'</div></section>'; };
+    var sec=function(t,id,inner){ return '<section class="nksec" id="'+id+'"><button type="button" class="nksh">'+t+CH+'</button><div class="nksb">'+inner+'</div></section>'; };
     box.innerHTML=sec("Tallas","nkTalla",'<div class="nktallas">'+TALLAS_ALL.map(function(t){return '<button type="button" data-nktf="'+t+'">'+t+'</button>';}).join("")+'</div>')+sec("Marca","nkMarca","");
     box.querySelector("#nkMarca .nksb").appendChild(chipsEl);
     side.querySelector(".sidehead h3").textContent="Filtros";
