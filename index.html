@@ -1177,6 +1177,12 @@ html body #nkT span{font-size:.62em!important;font-weight:400!important;color:#8
 @media (max-width:860px){html body #nkT span{font-size:12px!important}}
 #tools{top:var(--nkFix,120px)!important}
 @media (max-width:860px){#tools{top:var(--nkFix,77px)!important}}
+
+/* v71: "Zapatillas" fijo arriba de la columna de filtros */
+@media (min-width:861px){
+  html body #side > #nkT{position:sticky!important;top:0!important;z-index:3;background:#fff;margin-top:0!important}
+  html:not([data-theme="light"]) body #side > #nkT{background:#000}
+}
 </style>
 </head>
 <body>
@@ -2219,7 +2225,7 @@ var LOGOS = {"Timberland":"img%205/logo-timberland.png","Onitsuka Tiger":"img%20
     }
     var side=document.getElementById("side"), box=side.querySelector(".sidebox"), chipsEl=document.getElementById("chips");
     var sec=function(t,id,inner){ return '<section class="nksec open" id="'+id+'"><button type="button" class="nksh">'+t+CH+'</button><div class="nksb">'+inner+'</div></section>'; };
-    box.innerHTML=sec("Talla","nkTalla",'<div class="nktallas">'+TALLAS_ALL.map(function(t){return '<button type="button" data-nktf="'+t+'">'+t+'</button>';}).join("")+'</div>')+sec("Marca","nkMarca","");
+    box.innerHTML=sec("Tallas","nkTalla",'<div class="nktallas">'+TALLAS_ALL.map(function(t){return '<button type="button" data-nktf="'+t+'">'+t+'</button>';}).join("")+'</div>')+sec("Marca","nkMarca","");
     box.querySelector("#nkMarca .nksb").appendChild(chipsEl);
     side.querySelector(".sidehead h3").textContent="Filtros";
   }
@@ -2234,8 +2240,7 @@ var LOGOS = {"Timberland":"img%205/logo-timberland.png","Onitsuka Tiger":"img%20
     var lab=OPS.filter(function(o){return o[0]===orden;})[0];
     document.querySelector("#nkS span").textContent = (orden && window.innerWidth>700) ? "Ordenar por: "+lab[1] : "Ordenar por";
     [].forEach.call(document.querySelectorAll("[data-nko]"),function(b){ b.classList.toggle("on",b.dataset.nko===orden); });
-    if(tallaF && ((genF==="Niños")!==(tallaF<36))){ tallaF=0; grid(); return; }
-    [].forEach.call(document.querySelectorAll("[data-nktf]"),function(b){ b.classList.toggle("on",+b.dataset.nktf===tallaF); b.style.display=((genF==="Niños")===(+b.dataset.nktf<36))?"":"none"; });
+    [].forEach.call(document.querySelectorAll("[data-nktf]"),function(b){ b.classList.toggle("on",+b.dataset.nktf===tallaF); });
     var off=document.documentElement.classList.contains("nkoff");
     document.querySelector("#nkF span").textContent = movil() ? "Filtros" : (off?"Mostrar filtros":"Ocultar filtros");
     var e=document.querySelector("#grid > .empty"); if(e && genF==="Niños") e.textContent="Muy pronto tendremos tenis para niños.";
